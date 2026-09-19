@@ -1,60 +1,142 @@
-# 🧠 Brain Tumor Detection — Streamlit
+# 🧠 Brain Tumor Detection
 
-A Streamlit web application for demonstrating a YOLOv8 brain MRI tumor-detection model.
+An AI-powered **Brain Tumor Detection** application built using **YOLOv8** and **Streamlit**.
 
-## Project structure
+The application allows users to upload a brain MRI image and uses a trained YOLOv8 object detection model to identify possible tumor regions.
+
+## 🚀 Live Application
+
+The application is deployed using Streamlit Community Cloud.
+
+## 📌 Project Overview
+
+This project uses a YOLOv8 model trained on a brain tumor dataset obtained from Roboflow.
+
+The trained model can:
+
+* Accept brain MRI images as input
+* Detect possible tumor regions
+* Display the detected regions on the MRI
+* Show the detected class
+* Display the confidence score
+* Allow users to adjust the detection confidence threshold
+
+## 🤖 Model Information
+
+**Model:** YOLOv8 Nano (`yolov8n.pt`)
+**Task:** Object Detection
+**Training Epochs:** 50
+**Image Size:** 640 × 640
+**Batch Size:** 8
+**Dataset:** Brain Tumor Dataset from Roboflow
+
+The trained model was saved as:
 
 ```text
-brain-tumor-streamlit/
+runs/detect/brain_tumor_detection_yolov8_roboflow/weights/best.pt
+```
+
+The final `best.pt` file is used by the Streamlit application for inference.
+
+## 📂 Project Structure
+
+```text
+brain-tumor-detection/
+│
 ├── app.py
 ├── best.pt
 ├── requirements.txt
 └── README.md
 ```
 
-## Model
+### `app.py`
 
-`best.pt` is the trained YOLO model supplied with this project. The application loads the class names directly from the trained model, so class labels do not need to be hard-coded in `app.py`.
+Contains the Streamlit application and YOLOv8 inference code.
 
-## Run locally
+### `best.pt`
 
-Install dependencies:
+Contains the trained YOLOv8 model weights.
+
+### `requirements.txt`
+
+Contains the Python libraries required to run the application.
+
+### `README.md`
+
+Contains project documentation and deployment information.
+
+## 🛠️ Technologies Used
+
+* Python
+* YOLOv8
+* Ultralytics
+* Streamlit
+* OpenCV
+* Pillow
+* Roboflow
+* Google Colab
+
+## ▶️ Run Locally
+
+Install the required libraries:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Run:
+Run the Streamlit application:
 
 ```bash
 streamlit run app.py
 ```
 
-## Deploy on Streamlit Community Cloud
+The application will open in your browser.
 
-1. Create a GitHub repository.
-2. Upload **app.py**, **best.pt**, **requirements.txt**, and **README.md**.
-3. Open Streamlit Community Cloud and choose **Create app**.
-4. Select your GitHub repository and branch.
-5. Set the main file to `app.py`.
-6. Click **Deploy**.
+## ☁️ Streamlit Deployment
 
-### Important
+To deploy this project using Streamlit Community Cloud:
 
-The model file must be named exactly `best.pt` and must be in the same repository folder as `app.py`.
+1. Upload the following files to your GitHub repository:
 
-## How it works
+```text
+app.py
+best.pt
+requirements.txt
+README.md
+```
 
-1. Upload a brain MRI image.
-2. The app loads the trained YOLO model from `best.pt`.
-3. The image is passed to the model.
-4. Detections above the selected confidence threshold are displayed.
-5. The app shows the annotated MRI and confidence scores.
+2. Connect the GitHub repository to Streamlit Community Cloud.
 
-## Streamlit deployment notes
+3. Select:
 
-The supplied model is approximately 6 MB, so it is small enough for normal GitHub repository storage. If GitHub rejects a future model because of file-size limits, use Git LFS or external model hosting.
+```text
+Main file: app.py
+```
 
-## Medical disclaimer
+4. Deploy the application.
 
-This project is an educational/research demonstration. It is **not a medical diagnostic system**. Predictions should not be used as a substitute for evaluation by a qualified medical professional.
+Streamlit will automatically install the dependencies from `requirements.txt`.
+
+## 🔍 How to Use
+
+1. Open the application.
+2. Upload a brain MRI image.
+3. Select the desired detection confidence.
+4. Click **Detect Tumor**.
+5. View the annotated MRI.
+6. Review the detected class and confidence score.
+
+## ⚠️ Disclaimer
+
+This project is developed for **educational and research demonstration purposes only**.
+
+It is **not a medical diagnostic tool** and should not be used for clinical diagnosis, treatment decisions, or other medical decisions.
+
+Always consult a qualified medical professional for medical evaluation.
+
+## 👩‍💻 Project
+
+**Brain Tumor Detection using YOLOv8**
+
+Developed as a machine learning / deep learning project demonstrating object detection and Streamlit deployment.
+
